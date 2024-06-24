@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 function App() {
   let [place,setPlace] = useState('Bengaluru');
-  let url  = `http://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_API_KEY}&q=${place}&aqi=yes`;
+  let url  = `http://api.weatherapi.com/v1/current.json?key=44213ba3436a4f91b08112436242406&q=${place}&aqi=yes`;
   let [condition,setCondition] = useState("");
   let [humidity,setHumidity] = useState("");
   let [temp,setTemp] = useState("");
