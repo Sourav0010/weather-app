@@ -53,6 +53,7 @@ function App() {
 
   function searchCity(){
     let city = document.getElementById('price').value;
+    if(city.trim() === "") return;
     setPlace(city);
     url  = `https://api.weatherapi.com/v1/current.json?key=44213ba3436a4f91b08112436242406&q=${city}&aqi=yes`;
     fetch(url)
@@ -69,39 +70,46 @@ function App() {
   }
 
   return (
-   <>
-    <div className='flex flex-wrap items-center justify-between bg-transparent mx-5 my-3'>
-        <div className='text-blue-700'>
-            <h1 className=' text-4xl font-medium pb-2'>
-                <i className="fa-solid fa-location-dot"></i>
-                <span> </span> {place}
+   <div>
+    <div className='flex flex-wrap items-center justify-between bg-transparent py-4 px-3'>
+        
+        <div className='text-white max-sm:flex flex-wrap items-center justify-between max-sm:w-full'>
+            <h1 className=' font-poppinsMedium text-4xl font-medium pb-2'>
+                {place}
                 </h1>
-           <p>{time}</p>
+           <p className='font-poppinsRegular text-[12px]'>{time}</p>
         </div>
+
         <div className='flex items-center gap-2'>
-            <input type="text" name="price" id="price" className="block w-full rounded-md border-0 py-1.5 pl-2 pr-4 text-gray-900 ring-1 ring-inset ring-blue-300 placeholder:text-gray-400 text-blue-600 focus:ring-blue-400 sm:text-sm sm:leading-6" placeholder="Enter Your city here"></input>
+            <div className='flex gap-2 border rounded-md border-white'>
+              <input type="text" name="price" id="price" className=" text-white bg-transparent  px-2 py-2 rounded-md backdrop-blur-sm focus:ring-transparent focus-within:ring-transparent outline-none" placeholder="Enter Your city here"></input>
             <button 
-            className=' text-blue-700 bg-blue-50  hover:bg-blue-100 py-2 px-4 rounded-md rounded-sm search' onClick={searchCity}>
+            className='py-2 rounded-md px-4 text-black bg-white search' onClick={searchCity}>
               Search
             </button>
-            <button className=' text-blue-700 bg-blue-50  hover:bg-blue-100 py-2 px-4 rounded-md rounded-sm' onClick={currentLocation}><i className="fa-solid fa-location-crosshairs"></i></button>
+            </div>
+            <button className=' py-2 rounded-md px-4 text-black bg-white' onClick={currentLocation}><i className="fa-solid fa-location-crosshairs"></i></button>
         </div>
     </div>
+
     <div className=' py-16 flex flex-wrap items-center justify-evenly  text-blue-600'>
-        <div className=' text-blue-600'>
+        <div className=' text-white px-6 py-4 border border-white rounded-md'>
             <div className='flex'>
             <h1 className=' text-9xl'>{temp}</h1>
             <p className='mt-3 text-base'>°c</p>
             </div>
-            <p className=' text-sm text-center mt-2'>{condition}</p>
+            <p className=' text-base text-center mt-2'>{condition}</p>
         </div>
-        <div className='flex gap-3 flex-col'> 
+        <div className='flex gap-3 flex-col px-6 py-4 border border-white rounded-md text-white'> 
                 <p><i className="fa-solid fa-temperature-three-quarters"></i> Feels like : <span>{feelsLike} °c</span></p>
                 <p><i className="fa-solid fa-droplet"></i> Humidity : <span>{humidity} </span>%</p>
                 <p><i className="fa-solid fa-wind"></i> Wind : <span>{wind} km/h</span></p>
         </div>
     </div>
-   </>
+    <div className=' absolute bottom-1 text-white font-poppins-Regular flex items-center justify-center w-full'>
+      <p>Made with love by 💓Sourav</p>
+    </div>
+   </div>
   )
 }
 
