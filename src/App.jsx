@@ -70,7 +70,7 @@ function App() {
 
   return (
    <>
-    <div className='flex justify-between bg-transparent mx-5 my-3'>
+    <div className='flex flex-wrap items-center justify-between bg-transparent mx-5 my-3'>
         <div className='text-blue-700'>
             <h1 className=' text-4xl font-medium pb-2'>
                 <i className="fa-solid fa-location-dot"></i>
@@ -87,7 +87,7 @@ function App() {
             <button className=' text-blue-700 bg-blue-50  hover:bg-blue-100 py-2 px-4 rounded-md rounded-sm' onClick={currentLocation}><i className="fa-solid fa-location-crosshairs"></i></button>
         </div>
     </div>
-    <div className=' py-16 flex items-center justify-evenly  text-blue-600'>
+    <div className=' py-16 flex flex-wrap items-center justify-evenly  text-blue-600'>
         <div className=' text-blue-600'>
             <div className='flex'>
             <h1 className=' text-9xl'>{temp}</h1>
