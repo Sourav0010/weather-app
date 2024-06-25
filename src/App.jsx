@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 function App() {
   let [place,setPlace] = useState('Bengaluru');
-  let url  = `http://api.weatherapi.com/v1/current.json?key=44213ba3436a4f91b08112436242406&q=${place}&aqi=yes`;
+  let url  = `https://api.weatherapi.com/v1/current.json?key=44213ba3436a4f91b08112436242406&q=${place}&aqi=yes`;
   let [condition,setCondition] = useState("");
   let [humidity,setHumidity] = useState("");
   let [temp,setTemp] = useState("");
@@ -28,7 +28,7 @@ function App() {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
-        url = `http://api.weatherapi.com/v1/current.json?key=44213ba3436a4f91b08112436242406&q=${lat},${long}&aqi=yes`;
+        url = `https://api.weatherapi.com/v1/current.json?key=44213ba3436a4f91b08112436242406&q=${lat},${long}&aqi=yes`;
         fetch(url)
         .then(res => res.json())
         .then(data => {
@@ -54,7 +54,7 @@ function App() {
   function searchCity(){
     let city = document.getElementById('price').value;
     setPlace(city);
-    url  = `http://api.weatherapi.com/v1/current.json?key=44213ba3436a4f91b08112436242406&q=${city}&aqi=yes`;
+    url  = `https://api.weatherapi.com/v1/current.json?key=44213ba3436a4f91b08112436242406&q=${city}&aqi=yes`;
     fetch(url)
     .then(res => res.json())
     .then(data => {
